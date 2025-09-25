@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Employee Directory</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    h1 {
+      color: #333;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    li {
+      margin-bottom: 12px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    .full-time {
+      color: green;
+      font-weight: bold;
+    }
+    .part-time {
+      color: red;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Employee Directory</h1>
+  <div id="employee-list"></div>
+
+  <script>
+    // Employee data
+    const employees = [
+      { name: "Alice Johnson", job: "Software Engineer", salary: "$70,000", fullTime: true },
+      { name: "Bob Smith", job: "Designer", salary: "$50,000", fullTime: false },
+      { name: "Carol Lee", job: "Project Manager", salary: "$80,000", fullTime: true }
+    ];
+
+    const container = document.getElementById("employee-list");
+
+    if (employees.length === 0) {
+      container.innerHTML = "<p>No employees available.</p>";
+    } else {
+      const ul = document.createElement("ul");
+
+      employees.forEach(emp => {
+        const li = document.createElement("li");
+        li.innerHTML = `
+          <strong>${emp.name}</strong> <br>
+          Job: ${emp.job} <br>
+          Salary: ${emp.salary} <br>
+          Status: <span class="${emp.fullTime ? 'full-time' : 'part-time'}">
+            ${emp.fullTime ? 'Full-Time' : 'Part-Time'}
+          </span>
+        `;
+        ul.appendChild(li);
+      });
+
+      container.appendChild(ul);
+    }
+  </script>
+</body>
+</html>
