@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Username Form</title>
+</head>
+<body>
+    <h1>Enter your username</h1>
+    <form action="{% url 'result_page' %}" method="get">
+        <label for="username">Username:</label>
+        <input type="text" name="username" id="username" required>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
